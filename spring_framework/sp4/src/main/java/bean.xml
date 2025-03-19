@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="ds"
+		class="org.springframework.jdbc.DriverManagerDataSource">
+		<property name="driverclassName"
+			value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/jap73"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="Swapnil@123"></property>
+	</bean>
+	
+	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+
+	<bean id="ed" class="com.dao.EmployeeDao">
+	<property name="j" ref="jt"></property>
+	</bean>
+</beans>
+	
